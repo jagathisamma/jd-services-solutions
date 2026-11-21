@@ -1,0 +1,39 @@
+name: Bug report
+description: Report a problem with the website or repository.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: "Please provide enough detail to reproduce the problem. Do not include passwords, API keys, or customer personal information."
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the issue clearly.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. Open the page...\n2. Tap the button..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page or URL
+      placeholder: "https://..."
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshot or error details
+      description: Remove personal or sensitive information before sharing.
