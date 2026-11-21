@@ -1,0 +1,17 @@
+flowchart TD
+  A[Inspect issues and project state] --> B[Prioritise improvement]
+  B --> C[Create or update issue]
+  C --> D[Create focused branch]
+  D --> E[Implement code and data]
+  E --> F[Validate JSON YAML HTML and links]
+  F --> G{CI checks pass?}
+  G -- No --> E
+  G -- Yes --> H[Responsive and accessibility QA]
+  H --> I{Within standing authority?}
+  I -- No --> J[Ask owner for required decision]
+  I -- Yes --> K[Merge to main]
+  K --> L[Render auto-deploy]
+  L --> M{Deployment live?}
+  M -- No --> N[Investigate and repair]
+  N --> E
+  M -- Yes --> O[Smoke test and release report]

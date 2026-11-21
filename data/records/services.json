@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "services": [
+    {
+      "id": "mobile-repair",
+      "name": "Mobile phone repair",
+      "description": "Multi-brand mobile diagnosis and repair support.",
+      "intake": ["whatsapp", "call"],
+      "fulfilment": ["pickup-by-confirmation"],
+      "availabilityNote": "Pickup depends on area and current availability."
+    },
+    {
+      "id": "laptop-repair",
+      "name": "Laptop repair",
+      "description": "Laptop diagnosis, repair and spare-parts sourcing support.",
+      "intake": ["whatsapp", "call"],
+      "fulfilment": ["pickup-by-confirmation"],
+      "availabilityNote": "Pickup depends on area and current availability."
+    },
+    {
+      "id": "led-tv-repair",
+      "name": "LED TV repair",
+      "description": "LED TV diagnosis and repair coordination.",
+      "intake": ["whatsapp", "call"],
+      "fulfilment": ["onsite-by-confirmation"],
+      "availabilityNote": "Onsite service depends on location, fault and technician availability."
+    },
+    {
+      "id": "washing-machine-repair",
+      "name": "Washing machine repair",
+      "description": "Washing machine diagnosis and repair coordination.",
+      "intake": ["whatsapp", "call"],
+      "fulfilment": ["onsite-by-confirmation"],
+      "availabilityNote": "Onsite service depends on location, fault and technician availability."
+    },
+    {
+      "id": "home-appliance-repair",
+      "name": "Other home appliance repair",
+      "description": "Repair support and technician coordination for other home appliances.",
+      "intake": ["whatsapp", "call"],
+      "fulfilment": ["onsite-or-workshop-by-confirmation"],
+      "availabilityNote": "Service method depends on the appliance and current availability."
+    },
+    {
+      "id": "spare-parts-support",
+      "name": "Spare-parts sourcing",
+      "description": "Help identifying and sourcing compatible spare parts.",
+      "intake": ["whatsapp", "call"],
+      "fulfilment": ["sourcing-by-confirmation"],
+      "availabilityNote": "Part compatibility, price and lead time must be confirmed."
+    }
+  ]
+}
