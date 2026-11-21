@@ -48,7 +48,13 @@ This repository is public. Never commit customer names, phone numbers, addresses
 ## Static-site boundary
 The current production service is a Render Static Site. A browser form cannot securely append records to repository files. Never put GitHub/Render credentials in browser code or simulate a successful saved enquiry. Until a private write API and secure storage are deliberately introduced, enquiry CTAs should open Call/WhatsApp and clearly communicate the next step.
 
-## Product quality and growth loop\n- Treat public UX, brand consistency, page performance, conversion funnel, private operations and business intelligence as one product roadmap. Do not equate a homepage redesign with completion of the operating platform.\n- Use `docs/PRODUCT_ROADMAP.md` to distinguish delivered foundations from capabilities that remain open.\n- Measure page performance and conversion with repeatable evidence; label budgets as targets until verified.\n- Keep public marketing content and private customer/repair/finance data separated.\n\n## Definition of done
+## Product quality and growth loop
+- Treat public UX, brand consistency, page performance, conversion funnel, private operations and business intelligence as one product roadmap. Do not equate a homepage redesign with completion of the operating platform.
+- Use `docs/PRODUCT_ROADMAP.md` to distinguish delivered foundations from capabilities that remain open.
+- Measure page performance and conversion with repeatable evidence; label budgets as targets until verified.
+- Keep public marketing content and private customer/repair/finance data separated.
+
+## Definition of done
 - Acceptance criteria are met and no known critical defect remains.
 - Relevant JSON/YAML/Markdown/Mermaid files are consistent.
 - CI passes.
