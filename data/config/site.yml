@@ -10,13 +10,6 @@ site:
     phoneE164: "+918940454360"
     label: "Call & WhatsApp"
   tagline: "Service Today... Smile Tomorrow..."
-brand:
-  colors:
-    navy: "#071D55"
-    blue: "#075BD8"
-    orange: "#FF6A00"
-    yellow: "#FFC400"
-    white: "#FFFFFF"
 runtime:
   hosting: "render-static-site"
   sourceBranch: "main"
