@@ -29,7 +29,14 @@ When a browser screenshot or reference is supplied by the owner, translate it in
 8. Merge routine website changes to main only when checks are green, the change is within the standing authority above, and no unresolved high-severity issue remains.
 9. Render watches main and auto-deploys. Do not trigger a duplicate manual deploy when auto-deploy is enabled.
 10. Verify the latest Render deployment reports live, then smoke-check the public URL where possible.
-11. Report the branch/PR, change summary, checks, deployment commit/status and any remaining limitations.
+11. Report the branch/PR, change summary, checks, exact deployed commit/status, browser evidence and any remaining limitations. Always include the live URL after a verified live deploy.
+
+## Contributor issue intake and prioritisation
+- Existing contributor-created issues are first-class roadmap work. Review their full bodies, dependencies and acceptance criteria before planning.
+- Keep one issue per coherent vertical slice; do not combine the full platform into one oversized PR.
+- Priority order: production blockers and security/privacy boundaries; visible brand/accessibility/performance quality; admin UI/auth foundation; schema/store/API/recovery; CRM/service operations; inventory/finance; CMS/campaigns/feedback/communications; optional AI.
+- Update `docs/PRODUCT_ROADMAP.md` when issue order or implementation status changes. Close only after verified acceptance criteria, not merely after PR merge.
+- A deployment is a release transport event, not evidence that the intended product experience is correct. Require post-deploy browser QA and a visible-change check.
 
 ## Source of truth
 - AGENTS.md: concise operating rules for coding agents.
