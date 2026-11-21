@@ -11,7 +11,10 @@ This repository contains the official website and supporting digital operating s
 ## Mandatory end-to-end delivery workflow
 - Never commit directly to main.
 - Inspect the latest main, related issues, open PRs, CI and Render status before starting.
-- Track substantive work through GitHub Issues, focused branches and PRs.
+- Track substantive work through GitHub Issues, focused branches and PRs. Inspect every open issue, including work authored by other contributors; preserve their scope, dependencies and acceptance criteria. Update the roadmap instead of silently ignoring tickets.
+- Treat owner screenshots, screen recordings and annotations as issue intake evidence. Create or update a reproducible issue with device, viewport, expected/actual result and acceptance criteria.
+- Never report visual/product work as complete based only on a successful Render deployment. A visible production change must be verified in the browser, including the exact official assets.
+- Use `docs/RELEASE_RUNBOOK.md` and the PR template as mandatory release gates. Record CI, review, pre-merge QA, exact Render commit and post-deploy browser evidence.
 - Run automated checks and fix failures before merge. Review the actual diff for correctness, security, accessibility, responsive behavior and performance.
 - Use the connected browser before merge for desktop/mobile visual and interaction QA. If unavailable, record the blocker and do not claim QA passed. After merge, verify the exact Render deployment is live, then use the browser for production smoke tests.
 - Routine website changes may be merged to main after required checks pass, the work is within the standing authority, and no unresolved high-severity issue remains.
