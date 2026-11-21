@@ -34,6 +34,10 @@ jobs:
           test -f docs/PERFORMANCE.md
           test -f docs/PRODUCT_ROADMAP.md
           test -f docs/diagrams/project-workflow.mmd
+          test -f docs/RELEASE_RUNBOOK.md
+          test -s assets/jd-logo.png
+          grep -q 'assets/jd-logo.png' index.html
+          test "$(grep -o 'assets/jd-logo.png' index.html | wc -l)" -ge 2
 
       - name: Validate JSON records against JSON Schema
         run: npx --yes ajv-cli@5.0.0 validate --spec=draft2020 -s data/schema/services.schema.json -d data/records/services.json
