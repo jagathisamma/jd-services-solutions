@@ -30,6 +30,9 @@ jobs:
           test -f docs/OPERATING_MODEL.md
           test -f docs/ARCHITECTURE.md
           test -f docs/FILE_DATABASE.md
+          test -f docs/BRAND_GUIDE.md
+          test -f docs/PERFORMANCE.md
+          test -f docs/PRODUCT_ROADMAP.md
           test -f docs/diagrams/project-workflow.mmd
 
       - name: Validate JSON records against JSON Schema
@@ -37,7 +40,7 @@ jobs:
 
       - name: Validate YAML configuration
         run: >-
-          ruby -e 'require "yaml"; YAML.safe_load_file("data/config/site.yml", permitted_classes: [], aliases: false); puts "YAML configuration is valid."'
+          ruby -e 'require "yaml"; Dir.glob("data/config/*.yml").sort.each { |path| YAML.safe_load_file(path, permitted_classes: [], aliases: false); puts "Valid YAML: #{path}" }'
 
       - name: Validate HTML files when present
         shell: bash
