@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jdservicessolutions.onrender.com/schemas/services.schema.json",
+  "title": "JD Services public catalogue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "services"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "services": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "description", "intake", "fulfilment", "availabilityNote"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "name": { "type": "string", "minLength": 2 },
+          "description": { "type": "string", "minLength": 10 },
+          "intake": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "enum": ["whatsapp", "call"] },
+            "uniqueItems": true
+          },
+          "fulfilment": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "enum": [
+                "pickup-by-confirmation",
+                "onsite-by-confirmation",
+                "onsite-or-workshop-by-confirmation",
+                "sourcing-by-confirmation"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "availabilityNote": { "type": "string", "minLength": 10 }
+        }
+      }
+    }
+  }
+}
