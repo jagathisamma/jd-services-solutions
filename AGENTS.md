@@ -21,7 +21,7 @@ This repository contains the official website and supporting digital operating s
 
 ## Data architecture and privacy
 - Follow docs/ARCHITECTURE.md, docs/FILE_DATABASE.md and docs/OPERATING_MODEL.md.
-- Use YAML in data/config for non-secret configuration, JSON in data/records for structured public records, JSON Schema in data/schema, Markdown for documentation/content, and Mermaid source in docs/diagrams.
+- Use `data/config/brand.yml` as the canonical brand-token source and `data/config/site.yml` for non-secret site/runtime settings. Use JSON in data/records for structured public records, JSON Schema in data/schema, Markdown for documentation/content, and Mermaid source in docs/diagrams.\n- Keep `docs/BRAND_GUIDE.md`, `docs/PERFORMANCE.md` and `docs/PRODUCT_ROADMAP.md` current when changing design standards, performance gates or product scope.
 - Validate structured records in CI. Keep schemaVersion and stable record IDs.
 - This repository is public: never commit customer/technician personal data, enquiries, repair history, device identifiers, payment data, passwords, API keys, tokens or secrets.
 - The flat-file repository is for public catalogue/content/config only, not CRM. A private CRM requires private access-controlled persistent storage, backups and retention controls.
