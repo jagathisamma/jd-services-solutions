@@ -24,10 +24,10 @@
     .announcement{background:#0c2a53;border-bottom:1px solid var(--line);font-size:.82rem;color:#d7e5fa}
     .announcement .container{display:flex;justify-content:center;gap:9px;padding:9px 0;text-align:center}
     .announcement strong{color:var(--yellow)}
-    .nav-wrap{position:sticky;top:0;z-index:20;background:rgba(7,26,53,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav-wrap{position:sticky;top:0;z-index:20;background:#071D55;border-bottom:1px solid var(--line)}
     .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
     .brand{display:flex;align-items:center;gap:12px;min-width:210px}
-    .brand-mark{display:none}
+    .brand-mark{display:none}.brand-logo{display:block;width:166px;height:auto;max-height:72px;object-fit:contain;object-position:left center}
     .brand-name{font:900 1.05rem ui-sans-serif,system-ui,sans-serif;letter-spacing:-.035em;line-height:1.15}
     .brand-name>span:first-child{color:var(--blue2)}
     .brand-sub{display:block;color:var(--yellow);font-size:.65rem;font-weight:700;letter-spacing:.04em;text-transform:none;margin-top:4px}
@@ -44,7 +44,7 @@
     .btn-ghost:hover{background:#ffffff14}
     .btn-sm{padding:10px 14px;font-size:.84rem}
     .hero{position:relative;overflow:hidden;padding:82px 0 72px;background:radial-gradient(ellipse at 78% 25%,#174b9b66,transparent 37%),radial-gradient(ellipse at 12% 90%,#FF6A0015,transparent 34%)}
-    .hero:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.2;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to right,black,transparent 85%)}
+    .hero:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.2;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:54px 54px;mask-image:none}
     .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}
     .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--yellow);font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
     .eyebrow:before{content:"";width:24px;height:2px;background:var(--orange)}
@@ -57,8 +57,8 @@
     .hero-notes span{display:flex;align-items:center;gap:8px}
     .tick{width:19px;height:19px;border-radius:50%;background:#7ce0b21b;color:var(--green);display:grid;place-items:center;font-size:.75rem;font-weight:900}
     .visual{position:relative;min-height:455px;display:grid;place-items:center}
-    .visual-glow{position:absolute;width:360px;height:360px;border-radius:50%;background:#2869dc33;filter:blur(55px)}
-    .device-board{position:relative;width:min(100%,470px);border:1px solid #ffffff25;border-radius:30px;padding:25px;background:linear-gradient(145deg,#153966eF,#0c2344f5);box-shadow:var(--shadow);transform:rotate(1deg)}
+    .visual-glow{position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,#2869dc38 0%,#2869dc12 48%,transparent 72%);pointer-events:none}
+    .device-board{position:relative;width:min(100%,470px);border:1px solid #ffffff25;border-radius:30px;padding:25px;background:linear-gradient(145deg,#153966eF,#0c2344f5);box-shadow:var(--shadow);transform:none}
     .board-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:23px}
     .board-label{font-size:.75rem;color:#b9cbe4;font-weight:700;letter-spacing:.11em;text-transform:uppercase}
     .live-dot{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;color:#a8f0ce;background:#7ce0b218;padding:6px 10px;border-radius:99px}
@@ -73,7 +73,7 @@
     .board-foot strong{font-size:.87rem}
     .board-foot small{display:block;color:#9eb2ce;font-size:.72rem}
     .board-arrow{width:35px;height:35px;border-radius:11px;background:var(--orange);color:#271507;display:grid;place-items:center;font-size:1.15rem;font-weight:900}
-    .float-tag{position:absolute;right:-5px;bottom:30px;background:#f7f9ff;color:#10264a;padding:13px 17px;border-radius:16px;box-shadow:var(--shadow);font-size:.8rem;font-weight:800;transform:rotate(-3deg)}
+    .float-tag{position:absolute;right:-5px;bottom:30px;background:#f7f9ff;color:#10264a;padding:13px 17px;border-radius:16px;box-shadow:var(--shadow);font-size:.8rem;font-weight:800;transform:none}
     .float-tag span{display:block;color:#64748b;font-weight:600;font-size:.69rem}
     .trust-strip{border-block:1px solid var(--line);background:#0a2141}
     .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);padding:20px 0}
@@ -140,7 +140,7 @@
     .tamil-inner{display:flex;align-items:center;justify-content:space-between;gap:30px}
     .tamil h2{font-size:1.55rem;margin-bottom:8px}
     .tamil p{color:#aebfd7;margin:0;font-size:.9rem;max-width:760px}
-    footer{background:#051329;border-top:1px solid var(--line);padding:27px 0;color:#8fa4c0;font-size:.8rem}
+    footer{background:#051329;border-top:1px solid var(--line);padding:27px 0;color:#8fa4c0;font-size:.8rem}.footer-branding{display:flex;align-items:center;gap:16px}.footer-logo{display:block;width:112px;height:auto;max-height:56px;object-fit:contain}
     .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
     .footer-brand{color:#e8effa;font-weight:800}
     .footer-tag{color:var(--yellow)}
@@ -149,18 +149,18 @@
     @media(max-width:980px){.nav-links{gap:16px}.hero-grid{gap:25px}.service-grid{grid-template-columns:repeat(2,1fr)}.process-grid{grid-template-columns:repeat(2,1fr)}.faq-grid{gap:30px}}
     @media(max-width:760px){
       .container{width:min(100% - 34px,600px)}.announcement .container{font-size:.72rem}
-      .nav{height:68px}.brand{min-width:0}.brand-mark{width:39px;height:39px}.nav-actions .btn{display:none}.menu-toggle{display:grid;place-items:center}
+      .nav{height:68px}.brand{min-width:0}.brand-logo{width:132px;max-height:60px}.brand-mark{width:39px;height:39px}.nav-actions .btn{display:none}.menu-toggle{display:grid;place-items:center}
       .nav-links{display:none;position:absolute;top:68px;left:0;right:0;padding:15px 22px 22px;background:#081d39;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}
       .nav-links.open{display:flex}.nav-links a{padding:12px 4px;border-bottom:1px solid var(--line)}
       .hero{padding:57px 0 49px}.hero-grid{grid-template-columns:1fr;gap:25px}h1{font-size:clamp(2.65rem,12vw,4.3rem)}.hero-copy{font-size:1rem}.visual{min-height:370px}.device-board{padding:19px}.device-tile{min-height:110px}.float-tag{right:0;bottom:13px}
       .trust-grid{grid-template-columns:1fr;padding:9px 0}.trust-item{justify-content:flex-start;border-right:0;border-bottom:1px solid var(--line);padding:12px 4px}.trust-item:last-child{border-bottom:0}
       section{padding:65px 0}.service-grid{grid-template-columns:1fr 1fr;gap:11px}.service-card{padding:18px;min-height:220px}.service-card h3{font-size:.98rem}.service-card p{font-size:.8rem}.service-icon{width:45px;height:45px;margin-bottom:16px}
       .mode-grid{grid-template-columns:1fr}.mode-card{padding:22px}.promise{padding-bottom:65px}.promise-panel{grid-template-columns:1fr;padding:26px}.promise-panel .btn{justify-self:start}
-      .faq-grid{grid-template-columns:1fr;gap:22px}.contact-panel{grid-template-columns:1fr;padding:24px;gap:25px}.tamil-inner{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column;gap:7px}
-      .mobile-cta{position:fixed;z-index:30;bottom:0;left:0;right:0;display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:10px 13px calc(10px + env(safe-area-inset-bottom));background:rgba(5,19,41,.94);backdrop-filter:blur(15px);border-top:1px solid var(--line)}
+      .faq-grid{grid-template-columns:1fr;gap:22px}.contact-panel{grid-template-columns:1fr;padding:24px;gap:25px}.tamil-inner{align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column;gap:12px}.footer-branding{flex-wrap:wrap}.footer-logo{width:104px}
+      .mobile-cta{position:fixed;z-index:30;bottom:0;left:0;right:0;display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:10px 13px calc(10px + env(safe-area-inset-bottom));background:#051329;border-top:1px solid var(--line)}
       .mobile-cta .btn{padding:12px 10px;font-size:.85rem}.mobile-cta-spacer{height:74px}
     }
-    @media(max-width:390px){.service-grid{grid-template-columns:1fr}.device-grid{gap:8px}.device-tile{min-height:102px}.brand-name{font-size:.9rem}}
+    @media(max-width:390px){.service-grid{grid-template-columns:1fr}.device-grid{gap:8px}.device-tile{min-height:102px}.brand-name{font-size:.9rem}.brand-logo{width:116px;max-height:54px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
   </style>
   <script type="application/ld+json">
@@ -180,8 +180,7 @@
   <div class="nav-wrap">
     <nav class="nav container" aria-label="Main navigation">
       <a class="brand" href="#home" aria-label="JD Services and Solutions home">
-
-        <span class="brand-name">JD <span>Services</span> &amp; Solutions<span class="brand-sub">Repair · Care · Support</span></span>
+        <img class="brand-logo" src="assets/jd-logo.png" width="444" height="222" alt="JD Services &amp; Solutions — Service Today... Smile Tomorrow..." fetchpriority="high" decoding="async">
       </a>
       <div class="nav-links" id="navLinks">
         <a href="#services">Services</a><a href="#how-it-works">How it works</a><a href="#service-options">Service options</a><a href="#faq">FAQs</a>
@@ -282,7 +281,7 @@
     <section class="tamil"><div class="container tamil-inner"><div><div class="section-kicker">தமிழிலும் பேசலாம்</div><h2>உங்கள் சாதனத்திற்கு சரியான சர்வீஸ் உதவி.</h2><p>மொபைல், லேப்டாப், LED TV, வாஷிங் மெஷின் மற்றும் வீட்டு உபயோகப் பொருட்கள் பழுதுபார்க்கும் சேவைக்கு எங்களைத் தொடர்பு கொள்ளுங்கள். உங்கள் சாதனத்தின் வகை, பிராண்ட், மாடல் மற்றும் பிரச்சினையைச் சொல்லுங்கள். சேவை கிடைக்கும் இடம், நேரம் மற்றும் கட்டணத்தை முன்கூட்டியே உறுதிப்படுத்திக் கொள்ளுங்கள்.</p></div><a class="btn btn-primary" href="https://wa.me/918940454360?text=வணக்கம்%2C%20எனக்கு%20சர்வீஸ்%20உதவி%20வேண்டும்." target="_blank" rel="noopener">WhatsApp மூலம் தொடர்பு கொள்ள ↗</a></div></section>
     <div class="mobile-cta" role="group" aria-label="Quick contact"><a class="btn btn-ghost" href="tel:+918940454360">☎&nbsp;Call&nbsp;JD</a><a class="btn btn-primary" href="https://wa.me/918940454360?text=Hi%20JD%20Services%20%26%20Solutions%2C%20I%20need%20repair%20service." target="_blank" rel="noopener">WhatsApp ↗</a></div><div class="mobile-cta-spacer" aria-hidden="true"></div>
   </main>
-  <footer><div class="container footer-inner"><div><span class="footer-brand">JD Services &amp; Solutions</span> · Erode · <span class="footer-tag">Service Today... Smile Tomorrow...</span></div><div>© <span class="current-year">2026</span> JD Services &amp; Solutions. All rights reserved.</div></div></footer>
+  <footer><div class="container footer-inner"><div class="footer-branding"><img class="footer-logo" src="assets/jd-logo.png" width="444" height="222" alt="" loading="lazy" decoding="async"><span>· Erode · <span class="footer-tag">Service Today... Smile Tomorrow...</span></span></div><div>© <span class="current-year">2026</span> JD Services &amp; Solutions. All rights reserved.</div></div></footer>
   <script>
     const menuButton=document.getElementById('menuToggle');
     const navLinks=document.getElementById('navLinks');
