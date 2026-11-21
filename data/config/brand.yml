@@ -1,0 +1,30 @@
+schemaVersion: 1
+brand:
+  name: JD Services & Solutions
+  location: Erode, Tamil Nadu, India
+  tagline: "Service Today... Smile Tomorrow..."
+  contact:
+    phone_display: "8940454360"
+    phone_e164: "+918940454360"
+    label: "Call & WhatsApp"
+  colors:
+    navy: "#071D55"
+    blue: "#075BD8"
+    orange: "#FF6A00"
+    yellow: "#FFC400"
+    white: "#FFFFFF"
+  usage:
+    primary_surface: navy
+    primary_action: orange
+    secondary_action: blue
+    emphasis: yellow
+    text_on_dark: white
+    guidance: "Use orange and yellow as accents; preserve strong contrast and calm navy surfaces."
+  typography:
+    display: "system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    body: "system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+  principles:
+    - "Use the official logo asset unchanged; do not redraw or crop it."
+    - "Never invent prices, warranties, certifications, ratings or testimonials."
+    - "Prefer clear service-category navigation and direct Call/WhatsApp actions."
+    - "Keep mobile layouts readable, touch-friendly and free of horizontal overflow."

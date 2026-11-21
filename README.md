@@ -7,6 +7,12 @@ Tagline: **Service Today... Smile Tomorrow...**
 ## Project operating model
 ChatGPT acts as the autonomous product and engineering lead for routine project improvements. See [docs/OPERATING_MODEL.md](docs/OPERATING_MODEL.md) for decision authority, issue-driven development, quality gates and release workflow.
 
+## Brand and quality standards
+- [Brand and UI guide](docs/BRAND_GUIDE.md)
+- [Canonical brand tokens](data/config/brand.yml)
+- [Performance budgets and verification](docs/PERFORMANCE.md)
+- [Product capability roadmap](docs/PRODUCT_ROADMAP.md)
+
 ## Architecture
 - [Architecture overview](docs/ARCHITECTURE.md)
 - [Flat-file database conventions](docs/FILE_DATABASE.md)
