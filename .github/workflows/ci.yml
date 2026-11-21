@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check required project documentation
+        run: test -f README.md
+
+      - name: Validate HTML files when present
+        shell: bash
+        run: |
+          mapfile -t html_files < <(find . -type f -name '*.html' -not -path './.git/*' -not -path './node_modules/*')
+          if [ "${#html_files[@]}" -eq 0 ]; then
+            echo "No HTML files exist yet; HTML validation is skipped."
+          else
+            npx --yes html-validate@10 "${html_files[@]}"
+          fi
