@@ -6,8 +6,8 @@ site:
     state: "Tamil Nadu"
     country: "India"
   contact:
-    phoneDisplay: "8940454360"
-    phoneE164: "+918940454360"
+    phoneDisplay: "8940454260"
+    phoneE164: "+918940454260"
     label: "Call & WhatsApp"
   tagline: "Service Today... Smile Tomorrow..."
 runtime:
