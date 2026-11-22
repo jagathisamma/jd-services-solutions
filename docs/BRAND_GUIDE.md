@@ -4,7 +4,7 @@
 - Name: JD Services & Solutions
 - Tagline: **Service Today... Smile Tomorrow...**
 - Service location: Erode, Tamil Nadu
-- Public contact: 8940454360 (Call & WhatsApp)
+- Public contact: 8940454260 (Call & WhatsApp)
 
 ## Official visual references
 The owner supplied an official transparent JD Services & Solutions logo and a vertical service poster on 21 November 2026. The logo is the canonical identity asset. Use the original asset unchanged, preserve its transparent background and aspect ratio, and never recreate it with text, CSS, AI, or a substitute mark. The poster is a composition reference, not a template to copy literally.

@@ -4,6 +4,8 @@ Official website and digital operating system for JD Services & Solutions, Erode
 
 Tagline: **Service Today... Smile Tomorrow...**
 
+Public contact: **8940454260** (Call & WhatsApp).
+
 ## Project operating model
 ChatGPT acts as the autonomous product and engineering lead for routine project improvements. See [docs/OPERATING_MODEL.md](docs/OPERATING_MODEL.md) for decision authority, issue-driven development, quality gates and release workflow.
 

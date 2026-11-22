@@ -40,7 +40,7 @@ This repository contains the official website and supporting digital operating s
 ## Brand
 - Business: JD Services & Solutions
 - Location: Erode, Tamil Nadu
-- Contact: 8940454360 (label as "Call & WhatsApp" in public content)
+- Contact: 8940454260 (label as "Call & WhatsApp" in public content)
 - Tagline: "Service Today... Smile Tomorrow..."
 - Palette: #071D55, #075BD8, #FF6A00, #FFC400, #FFFFFF.
 - Reuse the official uploaded logo unchanged when it is available. Never recreate an approximation.
