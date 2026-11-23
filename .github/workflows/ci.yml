@@ -46,6 +46,9 @@ jobs:
         run: >-
           ruby -e 'require "yaml"; Dir.glob("data/config/*.yml").sort.each { |path| YAML.safe_load_file(path, permitted_classes: [], aliases: false); puts "Valid YAML: #{path}" }'
 
+      - name: Smoke-test public contact paths, page sections and local assets
+        run: python3 .github/scripts/check_public_site.py
+
       - name: Validate HTML files when present
         shell: bash
         run: |
