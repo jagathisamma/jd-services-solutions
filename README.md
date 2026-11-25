@@ -29,3 +29,11 @@ This public repository stores only public website content, catalogue data and no
 
 ## Deployment
 The Render Static Site tracks the GitHub main branch and auto-deploys commits after merge. A successful CI run alone does not mean a production deploy is live; verify the Render deployment status.
+
+## Agent context maintenance
+
+`AGENTS.md` contains a generated project-context block. Keep human-authored policy outside its markers; update the generated block only through the deterministic script.
+
+- Sync after approved source or roadmap changes: `python3 .github/scripts/sync_agent_context.py --sync`
+- Verify without writing (required in CI): `python3 .github/scripts/sync_agent_context.py --check`
+- Run the focused tests: `python3 -m unittest discover -s tests -p 'test_agent_context.py' -v`

@@ -47,3 +47,62 @@ This repository contains the official website and supporting digital operating s
 
 ## Communication
 Be concise, truthful and action-oriented. Report what changed, what was verified, what is live, and any remaining blocker.
+
+<!-- BEGIN GENERATED JD PROJECT CONTEXT -->
+## Generated project context
+
+- Project: **JD Services & Solutions**.
+- Canonical public business facts (validated against data/config/site.yml): JD Services & Solutions; Erode, Tamil Nadu; Call & WhatsApp 8940454260; “Service Today... Smile Tomorrow...”.
+- Safety guardrails (validated against brand.yml and architecture docs): do not invent prices, warranties, certifications, ratings or testimonials; keep customer and technician data out of this public repository; use the official logo unchanged.
+- Production boundary: the public site is a Render Static Site tracking `main` with commit auto-deploy; verify live deployment state from Render before reporting a release.
+- Public/private boundary: this repository contains public site, catalogue, configuration and documentation only. Customer, technician, repair, payment and credential records require separate private, access-controlled persistence.
+- Canonical operating and release rules: `docs/OPERATING_MODEL.md`, `docs/RELEASE_RUNBOOK.md` and this file's human-authored policy sections.
+- Architecture topics: Current runtime; Product design system; Target architecture: flat-file first; System layers; Flat-file database boundaries; Evolution path.
+- Flat-file contract topics: Directory contract; Record rules; Current service catalogue; Editing workflow; CRM is not part of this flat-file database.
+- Project inventory (approved directory paths only):
+  - `.github/scripts/`
+  - `.github/workflows/`
+  - `assets/`
+  - `assets/visual/`
+  - `data/config/`
+  - `data/schema/`
+  - `docs/`
+  - `docs/diagrams/`
+  - `tests/`
+- Repository scripts (approved code file names only):
+  - `.github/scripts/check_public_site.py`
+  - `.github/scripts/sync_agent_context.py`
+- Issue roadmap index (capability names only; always re-query GitHub for live issue/PR state):
+  - #2 — Service-business operating platform epic
+  - #4 — Secure backend, database and deployment decision
+  - #5 — Owner-only Admin, customer records and enquiry-to-service funnel
+  - #6 — Spare-parts catalogue, stock ledger and supplier sourcing
+  - #7 — Repair job cards, technician assignment, pickup and onsite scheduling
+  - #8 — Repair estimates, invoices, receipts and job profitability
+  - #9 — Campaign landing pages, UTM attribution and enquiry conversion analytics
+  - #10 — Owner-managed service pages, FAQs, offers and approved media
+  - #11 — Deterministic AGENTS.md sync and CI drift guard
+  - #13 — Brand system, website performance and scalable product foundation
+  - #15 — Customer feedback portal and owner-managed feedback inbox
+  - #16 — Browser-first QA and verified release workflow
+  - #17 — Collection registry and JSON Schema metadata
+  - #18 — Crash-safe private JSON/JSONL store
+  - #19 — Owner-authenticated TypeScript API
+  - #20 — Schema-driven Admin collection UI
+  - #21 — Accessories retail and shared stock ledger
+  - #22 — Static pages from JSON/YAML/Markdown
+  - #23 — Consented repair-status communication outbox
+  - #24 — Private repair media storage
+  - #25 — Encrypted private backup/restore and recovery
+  - #26 — Generated Mermaid maps and project index
+  - #27 — Optional guardrailed owner assistant
+  - #28 — Production Android/Chrome blank-page and flashing defect
+  - #29 — Complete responsive website UI and conversion redesign
+  - #30 — Responsive Admin login UI and dashboard shell
+  - #31 — Minimal secure owner authentication
+- Agent-context maintenance:
+  - Sync: `python3 .github/scripts/sync_agent_context.py --sync`
+  - Verify: `python3 .github/scripts/sync_agent_context.py --check`
+  - Tests: `python3 -m unittest discover -s tests -v`
+- Privacy guarantee: generated content derives only from the eight approved documentation/configuration files above; AGENTS.md is read only to preserve human-authored text. Inventory lists allowlisted directory and script names only, never file contents, environment variables, customer records, uploads, backups or secrets.
+<!-- END GENERATED JD PROJECT CONTEXT -->
