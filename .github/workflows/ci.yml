@@ -52,6 +52,12 @@ jobs:
       - name: Test public-site metadata and image accessibility guards
         run: python3 -m unittest discover -s tests -p 'test_public_site_metadata.py' -v
 
+      - name: Verify generated agent context is current
+        run: python3 scripts/sync_agent_context.py --check
+
+      - name: Test deterministic agent context generator
+        run: python3 -m unittest discover -s tests -p 'test_agent_context.py' -v
+
       - name: Validate HTML files when present
         shell: bash
         run: |
