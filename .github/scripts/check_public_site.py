@@ -35,9 +35,45 @@ class PublicSiteParser(HTMLParser):
         self.hrefs = []
         self.local_assets = []
         self.has_viewport = False
+        self.document_language = ""
+        self.title_text = []
+        self.in_title = False
+        self.description = ""
+        self.og_title = ""
+        self.og_description = ""
+        self.h1_count = 0
+        self.images_missing_alt = 0
+
+    def handle_data(self, data):
+        if self.in_title:
+            self.title_text.append(data)
+
+    def handle_endtag(self, tag):
+        if tag == "title":
+            self.in_title = False
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag == "html":
+            self.document_language = (attrs.get("lang") or "").strip()
+        if tag == "title":
+            self.in_title = True
+        if tag == "h1":
+            self.h1_count += 1
+        if tag == "img" and "alt" not in attrs:
+            self.images_missing_alt += 1
+
+        if tag == "meta":
+            name = (attrs.get("name") or "").lower()
+            property_name = (attrs.get("property") or "").lower()
+            value = (attrs.get("content") or "").strip()
+            if name == "description":
+                self.description = value
+            elif property_name == "og:title":
+                self.og_title = value
+            elif property_name == "og:description":
+                self.og_description = value
+
         element_id = attrs.get("id")
         if element_id:
             self.ids.add(element_id)
@@ -106,6 +142,20 @@ def main():
 
     if not parser.has_viewport:
         fail("responsive viewport meta tag is missing")
+    if not parser.document_language:
+        fail("root html element is missing its language attribute")
+    if not "".join(parser.title_text).strip():
+        fail("document title is missing or empty")
+    if not parser.description:
+        fail('meta name="description" is missing or empty')
+    if not parser.og_title:
+        fail('Open Graph og:title metadata is missing or empty')
+    if not parser.og_description:
+        fail('Open Graph og:description metadata is missing or empty')
+    if parser.h1_count != 1:
+        fail(f"expected exactly one primary h1 heading, found {parser.h1_count}")
+    if parser.images_missing_alt:
+        fail(f"{parser.images_missing_alt} image element(s) are missing an alt attribute")
 
     fragments = {href[1:] for href in parser.hrefs if href.startswith("#") and len(href) > 1}
     broken_fragments = fragments - parser.ids
@@ -139,7 +189,7 @@ def main():
 
     print(
         "Public site smoke checks passed: canonical contact links, "
-        "required sections, internal anchors, responsive viewport and local assets."
+        "required sections, internal anchors, responsive metadata, SEO tags, image alt attributes and local assets."
     )
 
 
