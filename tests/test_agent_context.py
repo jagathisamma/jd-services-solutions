@@ -108,7 +108,7 @@ class AgentContextTests(unittest.TestCase):
         config = root / "data" / "config" / "site.yml"
         config.write_text(
             config.read_text(encoding="utf-8").replace(
-                'phoneDisplay: "8940454260"\\n', ""
+                'phoneDisplay: "8940454260"\n', ""
             ),
             encoding="utf-8",
         )
@@ -120,7 +120,7 @@ class AgentContextTests(unittest.TestCase):
         brand = root / "data" / "config" / "brand.yml"
         brand.write_text(
             brand.read_text(encoding="utf-8").replace(
-                "Never invent prices, warranties, certifications, ratings or testimonials.\\n",
+                "Never invent prices, warranties, certifications, ratings or testimonials.\n",
                 "",
             ),
             encoding="utf-8",
