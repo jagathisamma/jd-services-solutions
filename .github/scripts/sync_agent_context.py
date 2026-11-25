@@ -221,7 +221,7 @@ def render_context(root: Path) -> str:
             "  - Sync: `python3 .github/scripts/sync_agent_context.py --sync`",
             "  - Verify: `python3 .github/scripts/sync_agent_context.py --check`",
             "  - Tests: `python3 -m unittest discover -s tests -v`",
-            "- Privacy guarantee: generation reads only the six approved documentation files above; inventory lists allowlisted directory and script names only, never file contents, environment variables, customer records, uploads, backups or secrets.",
+            "- Privacy guarantee: generated content derives only from the six approved documentation files above; AGENTS.md is read only to preserve human-authored text. Inventory lists allowlisted directory and script names only, never file contents, environment variables, customer records, uploads, backups or secrets.",
             END_MARKER,
         ]
     )
