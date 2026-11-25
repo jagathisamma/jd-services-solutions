@@ -288,7 +288,7 @@ def replace_generated_block(document: str, generated: str) -> str:
     if end < start:
         raise ContextError("AGENTS.md generated-block markers are out of order")
     end += len(END_MARKER)
-    return document[:start].rstrip() + "\n\n" + generated + document[end:].lstrip("\n")
+    return document[:start] + generated + document[end:]
 
 
 def run(mode: str, root: Path = ROOT) -> int:
