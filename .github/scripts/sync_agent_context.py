@@ -146,6 +146,33 @@ def directory_inventory(root: Path) -> list[str]:
     return sorted(discovered)
 
 
+def script_inventory(root: Path) -> list[str]:
+    """List approved script paths only; never inspect script contents."""
+    discovered: set[str] = set()
+    allowed_suffixes = {".py", ".sh", ".js", ".mjs", ".ts", ".tsx"}
+    for relative_root in (".github/scripts", "scripts"):
+        base = root / relative_root
+        if not base.is_dir():
+            continue
+        for current, directories, files in os.walk(base, followlinks=False):
+            directories[:] = sorted(
+                name
+                for name in directories
+                if not is_excluded_directory(name)
+                and not (Path(current) / name).is_symlink()
+            )
+            for name in files:
+                candidate = Path(current) / name
+                if candidate.suffix.lower() not in allowed_suffixes:
+                    continue
+                if SENSITIVE_NAME.search(name):
+                    continue
+                if candidate.is_symlink():
+                    continue
+                discovered.add(candidate.relative_to(root).as_posix())
+    return sorted(discovered)
+
+
 def render_context(root: Path) -> str:
     contents = read_required_files(root)
     project_title = extract_project_title(contents["README.md"])
@@ -160,6 +187,7 @@ def render_context(root: Path) -> str:
     extract_headings(contents["docs/RELEASE_RUNBOOK.md"], "docs/RELEASE_RUNBOOK.md")
     roadmap_entries = extract_roadmap_entries(contents["docs/PRODUCT_ROADMAP.md"])
     inventory = directory_inventory(root)
+    scripts = script_inventory(root)
 
     lines = [
         BEGIN_MARKER,
@@ -178,6 +206,8 @@ def render_context(root: Path) -> str:
         "- Project inventory (approved directory paths only):",
     ]
     lines.extend(f"  - `{path}/`" for path in inventory)
+    lines.append("- Repository scripts (approved code file names only):")
+    lines.extend(f"  - `{path}`" for path in scripts)
     lines.append(
         "- Issue roadmap index (capability names only; always re-query GitHub for live issue/PR state):"
     )
@@ -191,7 +221,7 @@ def render_context(root: Path) -> str:
             "  - Sync: `python3 .github/scripts/sync_agent_context.py --sync`",
             "  - Verify: `python3 .github/scripts/sync_agent_context.py --check`",
             "  - Tests: `python3 -m unittest discover -s tests -v`",
-            "- Privacy guarantee: generation reads only the six approved documentation files above; inventory lists allowlisted directory names and never reads file contents, environment variables, customer records, uploads, backups or secrets.",
+            "- Privacy guarantee: generation reads only the six approved documentation files above; inventory lists allowlisted directory and script names only, never file contents, environment variables, customer records, uploads, backups or secrets.",
             END_MARKER,
         ]
     )
