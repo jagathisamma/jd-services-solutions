@@ -99,6 +99,10 @@ def fail(message):
     raise SystemExit(f"PUBLIC SITE SMOKE TEST FAILED: {message}")
 
 
+def validate_document_metadata(parser):
+    validate_document_metadata(parser)
+
+
 def main():
     contents = {}
     for relative_path in SOURCE_FILES:
