@@ -20,6 +20,8 @@ REQUIRED_FILES = (
     "docs/OPERATING_MODEL.md",
     "docs/PRODUCT_ROADMAP.md",
     "docs/RELEASE_RUNBOOK.md",
+    "data/config/site.yml",
+    "data/config/brand.yml",
 )
 INVENTORY_ROOTS = (
     ".github/scripts",
@@ -97,6 +99,49 @@ def validate_deployment_contract(readme: str) -> None:
         raise ContextError(
             "README.md deployment section is missing: " + ", ".join(missing)
         )
+
+
+def validate_business_and_safety(contents: dict[str, str]) -> None:
+    required_site_facts = (
+        'name: "JD Services & Solutions"',
+        'city: "Erode"',
+        'state: "Tamil Nadu"',
+        'phoneDisplay: "8940454260"',
+        'phoneE164: "+918940454260"',
+        'tagline: "Service Today... Smile Tomorrow..."',
+        'hosting: "render-static-site"',
+        'sourceBranch: "main"',
+        'customerDataStorage: "not-configured"',
+    )
+    site = contents["data/config/site.yml"]
+    for fact in required_site_facts:
+        if fact not in site:
+            raise ContextError(f"data/config/site.yml is missing canonical setting: {fact}")
+
+    required_brand_rules = (
+        "Use the official logo asset unchanged; do not redraw or crop it.",
+        "Never invent prices, warranties, certifications, ratings or testimonials.",
+    )
+    brand = contents["data/config/brand.yml"]
+    for rule in required_brand_rules:
+        if rule not in brand:
+            raise ContextError(f"data/config/brand.yml is missing safety rule: {rule}")
+
+    architecture = contents["docs/ARCHITECTURE.md"]
+    for rule in (
+        "not a safe CRM database",
+        "Do not store customer or technician personal data",
+    ):
+        if rule not in architecture:
+            raise ContextError(f"docs/ARCHITECTURE.md is missing privacy rule: {rule}")
+
+    operating_model = contents["docs/OPERATING_MODEL.md"]
+    for rule in (
+        "This repository is public.",
+        "private, access-controlled and backed-up store",
+    ):
+        if rule not in operating_model:
+            raise ContextError(f"docs/OPERATING_MODEL.md is missing safety rule: {rule}")
 
 
 def extract_roadmap_entries(roadmap: str) -> list[tuple[str, str]]:
@@ -177,6 +222,7 @@ def render_context(root: Path) -> str:
     contents = read_required_files(root)
     project_title = extract_project_title(contents["README.md"])
     validate_deployment_contract(contents["README.md"])
+    validate_business_and_safety(contents)
     architecture_headings = extract_headings(
         contents["docs/ARCHITECTURE.md"], "docs/ARCHITECTURE.md"
     )
@@ -194,6 +240,8 @@ def render_context(root: Path) -> str:
         "## Generated project context",
         "",
         f"- Project: **{project_title}**.",
+        "- Canonical public business facts (validated against data/config/site.yml): JD Services & Solutions; Erode, Tamil Nadu; Call & WhatsApp 8940454260; “Service Today... Smile Tomorrow...”.",
+        "- Safety guardrails (validated against brand.yml and architecture docs): do not invent prices, warranties, certifications, ratings or testimonials; keep customer and technician data out of this public repository; use the official logo unchanged.",
         "- Production boundary: the public site is a Render Static Site tracking `main` with commit auto-deploy; verify live deployment state from Render before reporting a release.",
         "- Public/private boundary: this repository contains public site, catalogue, configuration and documentation only. Customer, technician, repair, payment and credential records require separate private, access-controlled persistence.",
         "- Canonical operating and release rules: `docs/OPERATING_MODEL.md`, `docs/RELEASE_RUNBOOK.md` and this file's human-authored policy sections.",
@@ -221,7 +269,7 @@ def render_context(root: Path) -> str:
             "  - Sync: `python3 .github/scripts/sync_agent_context.py --sync`",
             "  - Verify: `python3 .github/scripts/sync_agent_context.py --check`",
             "  - Tests: `python3 -m unittest discover -s tests -v`",
-            "- Privacy guarantee: generated content derives only from the six approved documentation files above; AGENTS.md is read only to preserve human-authored text. Inventory lists allowlisted directory and script names only, never file contents, environment variables, customer records, uploads, backups or secrets.",
+            "- Privacy guarantee: generated content derives only from the eight approved documentation/configuration files above; AGENTS.md is read only to preserve human-authored text. Inventory lists allowlisted directory and script names only, never file contents, environment variables, customer records, uploads, backups or secrets.",
             END_MARKER,
         ]
     )
