@@ -42,7 +42,7 @@ SENSITIVE_NAME = re.compile(
     r"private|runtime|upload|backup|token|key)",
     re.IGNORECASE,
 )
-ISSUE_ROW = re.compile(r"^\\|\\s*(#\\d+)\\s*\\|\\s*([^|]+?)\\s*\\|")
+ISSUE_ROW = re.compile(r"^\|\s*(#\d+)\s*\|\s*([^|]+?)\s*\|")
 
 
 class ContextError(ValueError):
@@ -85,7 +85,7 @@ def extract_headings(markdown: str, relative: str) -> list[str]:
 
 def validate_deployment_contract(readme: str) -> None:
     match = re.search(
-        r"(?ms)^## Deployment\\s*\\n(.*?)(?=^## |\\Z)",
+        r"(?ms)^## Deployment\s*\n(.*?)(?=^## |\Z)",
         readme,
     )
     if not match:
@@ -195,7 +195,7 @@ def render_context(root: Path) -> str:
             END_MARKER,
         ]
     )
-    return "\\n".join(lines)
+    return "\n".join(lines)
 
 
 def replace_generated_block(document: str, generated: str) -> str:
@@ -204,13 +204,13 @@ def replace_generated_block(document: str, generated: str) -> str:
     if begin_count != end_count or begin_count > 1:
         raise ContextError("AGENTS.md must contain exactly one balanced generated-block marker pair")
     if begin_count == 0:
-        return document.rstrip() + "\\n\\n" + generated + "\\n"
+        return document.rstrip() + "\n\n" + generated + "\n"
     start = document.index(BEGIN_MARKER)
     end = document.index(END_MARKER)
     if end < start:
         raise ContextError("AGENTS.md generated-block markers are out of order")
     end += len(END_MARKER)
-    return document[:start].rstrip() + "\\n\\n" + generated + document[end:].lstrip("\\n")
+    return document[:start].rstrip() + "\n\n" + generated + document[end:].lstrip("\n")
 
 
 def run(mode: str, root: Path = ROOT) -> int:
