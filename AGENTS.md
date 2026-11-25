@@ -47,3 +47,36 @@ This repository contains the official website and supporting digital operating s
 
 ## Communication
 Be concise, truthful and action-oriented. Report what changed, what was verified, what is live, and any remaining blocker.
+<!-- BEGIN GENERATED PROJECT CONTEXT -->
+## Generated project context
+
+Generated from approved local documentation and a fixed directory allowlist. Re-run the generator after changing these sources.
+
+### Approved local references
+
+- docs/ARCHITECTURE.md: Project architecture; Current runtime; Product design system; Target architecture: flat-file first; System layers; Flat-file database boundaries; Evolution path
+- docs/FILE_DATABASE.md: Flat-file database conventions; Directory contract; Record rules; Current service catalogue; Editing workflow; CRM is not part of this flat-file database
+- docs/OPERATING_MODEL.md: Autonomous project operating model; Mission; Decision authority; Delivery loop; Contributor issue intake and prioritisation; Source of truth; Data safety; Static-site boundary; Product quality and growth loop; Definition of done
+- docs/PRODUCT_ROADMAP.md: JD Product Roadmap — Capability Mapping; Completed in JD repository; Not completed; Usha issue handling note; Verified delivery snapshot — 2026-11-24; Recommended execution order; Business measurement baseline
+- docs/RELEASE_RUNBOOK.md: Release verification runbook; Release states; Required release evidence; Feedback-to-issue loop; Deployment configuration
+
+### Repository directory inventory
+
+- .github/ISSUE_TEMPLATE/
+- .github/scripts/
+- .github/workflows/
+- assets/
+- data/config/
+- data/records/
+- data/schema/
+- docs/
+- docs/diagrams/
+- tests/
+
+### Privacy guardrails
+
+- Only headings from approved Markdown documents are emitted; document body text is not copied.
+- The directory inventory uses a fixed allowlist and records directory names only; it never enumerates files.
+- The generator never reads JSON/YAML records, environment files, credentials, secrets or private runtime/customer data.
+- GitHub Issues/PRs and Render service/deploy state are live external sources; inspect them during each run instead of freezing volatile status here.
+<!-- END GENERATED PROJECT CONTEXT -->
