@@ -52,6 +52,8 @@ Be concise, truthful and action-oriented. Report what changed, what was verified
 ## Generated project context
 
 - Project: **JD Services & Solutions**.
+- Canonical public business facts (validated against data/config/site.yml): JD Services & Solutions; Erode, Tamil Nadu; Call & WhatsApp 8940454260; “Service Today... Smile Tomorrow...”.
+- Safety guardrails (validated against brand.yml and architecture docs): do not invent prices, warranties, certifications, ratings or testimonials; keep customer and technician data out of this public repository; use the official logo unchanged.
 - Production boundary: the public site is a Render Static Site tracking `main` with commit auto-deploy; verify live deployment state from Render before reporting a release.
 - Public/private boundary: this repository contains public site, catalogue, configuration and documentation only. Customer, technician, repair, payment and credential records require separate private, access-controlled persistence.
 - Canonical operating and release rules: `docs/OPERATING_MODEL.md`, `docs/RELEASE_RUNBOOK.md` and this file's human-authored policy sections.
@@ -102,5 +104,5 @@ Be concise, truthful and action-oriented. Report what changed, what was verified
   - Sync: `python3 .github/scripts/sync_agent_context.py --sync`
   - Verify: `python3 .github/scripts/sync_agent_context.py --check`
   - Tests: `python3 -m unittest discover -s tests -v`
-- Privacy guarantee: generated content derives only from the six approved documentation files above; AGENTS.md is read only to preserve human-authored text. Inventory lists allowlisted directory and script names only, never file contents, environment variables, customer records, uploads, backups or secrets.
+- Privacy guarantee: generated content derives only from the eight approved documentation/configuration files above; AGENTS.md is read only to preserve human-authored text. Inventory lists allowlisted directory and script names only, never file contents, environment variables, customer records, uploads, backups or secrets.
 <!-- END GENERATED JD PROJECT CONTEXT -->
