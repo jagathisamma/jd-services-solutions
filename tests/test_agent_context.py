@@ -145,22 +145,22 @@ class AgentContextTests(unittest.TestCase):
         inventory = SYNC.script_inventory(root)
         self.assertIn(".github/scripts/safe_check.py", inventory)
         self.assertNotIn(".github/scripts/customer_export.py", inventory)
-        self.assertNotIn("SAFE_SCRIPT_SENTINEL", "\\n".join(inventory))
-        self.assertNotIn("CUSTOMER_SCRIPT_SENTINEL", "\\n".join(inventory))
+        self.assertNotIn("SAFE_SCRIPT_SENTINEL", "\n".join(inventory))
+        self.assertNotIn("CUSTOMER_SCRIPT_SENTINEL", "\n".join(inventory))
 
     def test_human_authored_text_after_generated_block_is_preserved(self):
         document = (
-            "# Human before\\n\\n"
+            "# Human before\n\n"
             + SYNC.BEGIN_MARKER
-            + "\\nold generated text\\n"
+            + "\nold generated text\n"
             + SYNC.END_MARKER
-            + "\\n\\n## Human after\\nKeep this ending.\\n"
+            + "\n\n## Human after\nKeep this ending.\n"
         )
         updated = SYNC.replace_generated_block(
-            document, SYNC.BEGIN_MARKER + "\\nnew generated text\\n" + SYNC.END_MARKER
+            document, SYNC.BEGIN_MARKER + "\nnew generated text\n" + SYNC.END_MARKER
         )
         self.assertTrue(updated.startswith("# Human before"))
-        self.assertTrue(updated.endswith("## Human after\\nKeep this ending.\\n"))
+        self.assertTrue(updated.endswith("## Human after\nKeep this ending.\n"))
         self.assertNotIn("old generated text", updated)
 
     def test_roadmap_order_is_numeric_and_deterministic(self):
