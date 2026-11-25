@@ -21,9 +21,19 @@ SOURCE_FILES = {
         "## Deployment\n"
         "The Render Static Site tracks the GitHub main branch and auto-deploys commits.\n"
     ),
-    "docs/ARCHITECTURE.md": "# Architecture\n\n## Current runtime\n## Target architecture\n",
+    "docs/ARCHITECTURE.md": (
+        "# Architecture\n\n## Current runtime\n"
+        "The public repository is not a safe CRM database. "
+        "Do not store customer or technician personal data.\n"
+        "## Target architecture\n"
+    ),
     "docs/FILE_DATABASE.md": "# File database\n\n## Directory contract\n## Privacy boundary\n",
-    "docs/OPERATING_MODEL.md": "# Operating model\n\n## Decision authority\n## Delivery loop\n",
+    "docs/OPERATING_MODEL.md": (
+        "# Operating model\n\n## Decision authority\n"
+        "This repository is public. Customer CRM/order data requires a private, "
+        "access-controlled and backed-up store before collection is implemented.\n"
+        "## Delivery loop\n"
+    ),
     "docs/RELEASE_RUNBOOK.md": "# Release runbook\n\n## Release states\n## Verification\n",
     "docs/PRODUCT_ROADMAP.md": (
         "# Roadmap\n\n"
@@ -31,6 +41,21 @@ SOURCE_FILES = {
         "|---|---|---|---|\n"
         "| #2 | Operating platform | Internal | Open |\n"
         "| #11 | Agent context sync | Internal | Open |\n"
+    ),
+    "data/config/site.yml": (
+        'name: "JD Services & Solutions"\n'
+        'city: "Erode"\n'
+        'state: "Tamil Nadu"\n'
+        'phoneDisplay: "8940454260"\n'
+        'phoneE164: "+918940454260"\n'
+        'tagline: "Service Today... Smile Tomorrow..."\n'
+        'hosting: "render-static-site"\n'
+        'sourceBranch: "main"\n'
+        'customerDataStorage: "not-configured"\n'
+    ),
+    "data/config/brand.yml": (
+        "Use the official logo asset unchanged; do not redraw or crop it.\n"
+        "Never invent prices, warranties, certifications, ratings or testimonials.\n"
     ),
 }
 
@@ -75,6 +100,31 @@ class AgentContextTests(unittest.TestCase):
         temporary, root = make_root()
         self.addCleanup(temporary.cleanup)
         (root / "docs" / "ARCHITECTURE.md").unlink()
+        self.assertEqual(SYNC.run("check", root), 1)
+
+    def test_missing_canonical_business_fact_fails(self):
+        temporary, root = make_root()
+        self.addCleanup(temporary.cleanup)
+        config = root / "data" / "config" / "site.yml"
+        config.write_text(
+            config.read_text(encoding="utf-8").replace(
+                'phoneDisplay: "8940454260"\\n', ""
+            ),
+            encoding="utf-8",
+        )
+        self.assertEqual(SYNC.run("check", root), 1)
+
+    def test_missing_brand_safety_rule_fails(self):
+        temporary, root = make_root()
+        self.addCleanup(temporary.cleanup)
+        brand = root / "data" / "config" / "brand.yml"
+        brand.write_text(
+            brand.read_text(encoding="utf-8").replace(
+                "Never invent prices, warranties, certifications, ratings or testimonials.\\n",
+                "",
+            ),
+            encoding="utf-8",
+        )
         self.assertEqual(SYNC.run("check", root), 1)
 
     def test_malformed_roadmap_fails(self):
