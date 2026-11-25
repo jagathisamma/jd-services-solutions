@@ -100,7 +100,20 @@ def fail(message):
 
 
 def validate_document_metadata(parser):
-    validate_document_metadata(parser)
+    if not parser.document_language:
+        fail("root html element is missing its language attribute")
+    if not "".join(parser.title_text).strip():
+        fail("document title is missing or empty")
+    if not parser.description:
+        fail('meta name="description" is missing or empty')
+    if not parser.og_title:
+        fail('Open Graph og:title metadata is missing or empty')
+    if not parser.og_description:
+        fail('Open Graph og:description metadata is missing or empty')
+    if parser.h1_count != 1:
+        fail(f"expected exactly one primary h1 heading, found {parser.h1_count}")
+    if parser.images_missing_alt:
+        fail(f"{parser.images_missing_alt} image element(s) are missing an alt attribute")
 
 
 def main():
@@ -146,20 +159,7 @@ def main():
 
     if not parser.has_viewport:
         fail("responsive viewport meta tag is missing")
-    if not parser.document_language:
-        fail("root html element is missing its language attribute")
-    if not "".join(parser.title_text).strip():
-        fail("document title is missing or empty")
-    if not parser.description:
-        fail('meta name="description" is missing or empty')
-    if not parser.og_title:
-        fail('Open Graph og:title metadata is missing or empty')
-    if not parser.og_description:
-        fail('Open Graph og:description metadata is missing or empty')
-    if parser.h1_count != 1:
-        fail(f"expected exactly one primary h1 heading, found {parser.h1_count}")
-    if parser.images_missing_alt:
-        fail(f"{parser.images_missing_alt} image element(s) are missing an alt attribute")
+    validate_document_metadata(parser)
 
     fragments = {href[1:] for href in parser.hrefs if href.startswith("#") and len(href) > 1}
     broken_fragments = fragments - parser.ids
