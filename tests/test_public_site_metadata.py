@@ -70,6 +70,29 @@ class PublicSiteMetadataTests(unittest.TestCase):
             'meta name="description"',
         )
 
+    def test_empty_description_is_rejected(self):
+        self.assert_metadata_rejected(
+            VALID_DOCUMENT.replace(
+                'content="Repair support in Erode."',
+                'content=""',
+                1,
+            ),
+            'meta name="description"',
+        )
+
+    def test_empty_open_graph_values_are_rejected(self):
+        empty_title = VALID_DOCUMENT.replace(
+            'property="og:title" content="JD Services &amp; Solutions"',
+            'property="og:title" content=""',
+        )
+        self.assert_metadata_rejected(empty_title, "og:title")
+
+        empty_description = VALID_DOCUMENT.replace(
+            'property="og:description" content="Repair support in Erode."',
+            'property="og:description" content=""',
+        )
+        self.assert_metadata_rejected(empty_description, "og:description")
+
     def test_missing_open_graph_title_is_rejected(self):
         self.assert_metadata_rejected(
             VALID_DOCUMENT.replace(
