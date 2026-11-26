@@ -11,7 +11,7 @@ A release is complete only when every required gate below is evidenced. Render's
 6. **Code review:** inspect the complete diff for correctness, security/privacy, responsive behavior, accessibility, performance and fabricated claims. Record unresolved findings.
 7. **Pre-merge browser QA:** test 360, 390, 430, 768, 1024, 1280 and 1440 widths where applicable. Capture screenshots; verify navigation, CTAs, images, console and network. Status must be PASS, FAIL or BLOCKED with evidence. For changes that cannot affect rendered UI, explicitly record NOT APPLICABLE and explain why.
 8. **Merge:** merge only after CI and review pass and no unresolved release-blocking defect remains.
-9. **Render:** wait for the auto-deploy triggered by the merge. Do not trigger a duplicate manual deploy. Match the live deployment's commit SHA to the merge commit.
+9. **Render:** wait for the auto-deploy triggered by the merge. Do not trigger a duplicate manual deploy. Match the live deployment's commit SHA to the exact merge commit.
 10. **Post-deploy browser QA:** open the production URL in a fresh browser context; verify page content, assets, interactions, responsive states, console/network and stability. A cloud-browser pass does not erase a reproducible owner-device failure.
 11. **Closeout:** close only acceptance criteria actually met. Keep unresolved criteria/issues open and create linked follow-ups where needed.
 
