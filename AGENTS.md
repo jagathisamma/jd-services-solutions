@@ -71,6 +71,7 @@ Be concise, truthful and action-oriented. Report what changed, what was verified
   - `tests/`
 - Repository scripts (approved code file names only):
   - `.github/scripts/check_public_site.py`
+  - `.github/scripts/check_release_workflow.py`
   - `.github/scripts/sync_agent_context.py`
 - Issue roadmap index (capability names only; always re-query GitHub for live issue/PR state):
   - #2 — Service-business operating platform epic

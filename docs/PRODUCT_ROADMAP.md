@@ -15,7 +15,7 @@ This roadmap adapts reusable product capabilities from the earlier Usha.Construc
 | #11 | Deterministic AGENTS.md sync and CI drift guard | Usha #39 workflow automation request, correctly recreated for JD | Completed in PR #44 on 2026-11-25: managed context block, deterministic sync/check, allowlisted inventory, canonical business/privacy validation and CI drift tests |
 | #13 | Brand system, website performance and scalable product foundation | New JD-specific product quality issue based on owner references | Open; official transparent logo is now in header/footer via merged PR #32; remaining performance/product-quality criteria are open |
 | #15 | Customer feedback portal and owner-managed feedback inbox | Owner requirement for shareable feedback URL + private CMS inbox | Open; requires secure API/auth |
-| #16 | Browser-first QA and verified release workflow | Owner's end-to-end delivery requirements | Open; release runbook, PR QA template, logo/asset CI gates and generated-context drift check are present; automated release-evidence validation and owner-device QA remain |
+| #16 | Browser-first QA and verified release workflow | Owner's end-to-end delivery requirements | Open; PR template, release runbook and machine-readable evidence template now have a CI structure guard; per-release evidence review and owner-device QA remain |
 | #17 | Collection registry and JSON Schema metadata | Contributor: getwinharris | Open; schema foundation |
 | #18 | Crash-safe private JSON/JSONL store | Contributor: getwinharris | Open; depends on #17/#4 |
 | #19 | Owner-authenticated TypeScript API | Contributor: getwinharris | Open; depends on #17/#18; auth vertical slice #31 is sequenced separately |

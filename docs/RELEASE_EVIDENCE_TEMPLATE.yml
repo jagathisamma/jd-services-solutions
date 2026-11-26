@@ -1,0 +1,25 @@
+# Copy this structure into the PR/release summary and fill only verified values.
+# Do not add customer records, credentials, tokens, private URLs or other secrets.
+release:
+  issue_urls: []
+  branch: null
+  pr_url: null
+  merge_commit_sha: null
+  ci:
+    run_url: null
+    conclusion: null
+  render:
+    deployment_id: null
+    status: null
+    deployed_commit_sha: null
+    production_url: null
+  browser_qa:
+    pre_merge:
+      status: NOT_RUN
+      viewports: []
+      evidence_urls: []
+    post_deploy:
+      status: NOT_RUN
+      viewports: []
+      evidence_urls: []
+  known_limitations: []
