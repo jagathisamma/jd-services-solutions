@@ -82,7 +82,7 @@ class ReleaseWorkflowTests(unittest.TestCase):
         errors = CHECKER.validate(
             VALID_TEMPLATE,
             VALID_RUNBOOK,
-            VALID_EVIDENCE.replace("  deployed_commit_sha: null\n", ""),
+            VALID_EVIDENCE.replace("    deployed_commit_sha: null\n", ""),
         )
         self.assertTrue(any("deployed_commit_sha" in error for error in errors))
 
