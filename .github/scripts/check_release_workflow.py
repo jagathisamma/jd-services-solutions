@@ -66,8 +66,9 @@ def validate(template: str, runbook: str, evidence: str) -> list[str]:
     for phrase in REQUIRED_TEMPLATE_TEXT:
         if phrase not in template:
             errors.append(f"PR template is missing release field or status: {phrase}")
+    runbook_normalized = runbook.casefold()
     for phrase in REQUIRED_RUNBOOK_TEXT:
-        if phrase not in runbook:
+        if phrase.casefold() not in runbook_normalized:
             errors.append(f"release runbook is missing required guidance: {phrase}")
     for pattern in REQUIRED_EVIDENCE_FIELDS:
         if not re.search(pattern, evidence):
